@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage continueOnError="false" enabled="true" name="AM-SetGetShowtimesRequest">
+    <DisplayName>AM-SetGetShowtimesRequest</DisplayName>
+    <AssignVariable>
+        <Name>the-golden-ticket.path</Name>
+        <Value>/</Value>
+    </AssignVariable>
+    <Remove>
+        <Payload>true</Payload>
+    </Remove>
+    <Set>
+        <Verb>GET</Verb>
+        <QueryParams>
+            <QueryParam name="movie">{google.dialogflow.the-golden-ticket.session.parameters.movie}</QueryParam>
+            <QueryParam name="city">{google.dialogflow.the-golden-ticket.session.parameters.city}</QueryParam>
+            <QueryParam name="date">{google.dialogflow.the-golden-ticket.session.parameters.date-string}</QueryParam>
+        </QueryParams>
+    </Set>
+    <AssignTo createNew="false" transport="http" type="request"/>
+</AssignMessage>

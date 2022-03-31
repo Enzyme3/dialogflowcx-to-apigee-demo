@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <PreFlow name="PreFlow">
+        <Request>
+            <Step>
+                <Name>ParseDialogflowRequest</Name>
+            </Step>
+            <Step>
+                <Condition>(google.dialogflow.the-golden-ticket.fulfillment.tag = "get-movies")</Condition>
+                <Name>ResponseCache</Name>
+            </Step>
+        </Request>
+        <Response/>
+    </PreFlow>
+    <Flows>
+        <Flow name="get-movies">
+            <Description/>
+            <Request>
+                <Step>
+                    <Name>AM-SetGetMoviesRequest</Name>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <Name>SDR-get-movies</Name>
+                </Step>
+            </Response>
+            <Condition>(google.dialogflow.the-golden-ticket.fulfillment.tag = "get-movies")</Condition>
+        </Flow>
+        <Flow name="get-movies-cache-prefetch">
+            <Description/>
+            <Request>
+                <Step>
+                    <Name>AM-SetGetMoviesPrecacheRequest</Name>
+                </Step>
+                <Step>
+                    <Name>JS-UpdateWebhookTagForCachePrefetch</Name>
+                </Step>
+                <Step>
+                    <Name>SC-get-movies-precache</Name>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <Name>SDR-get-movies-precache</Name>
+                </Step>
+            </Response>
+            <Condition>(google.dialogflow.the-golden-ticket.fulfillment.tag = "get-movies-cache-prefetch")</Condition>
+        </Flow>
+        <Flow name="get-showtimes">
+            <Description/>
+            <Request>
+                <Step>
+                    <Name>AM-SetGetShowtimesRequest</Name>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <Name>SDR-get-showtimes</Name>
+                </Step>
+            </Response>
+            <Condition>(google.dialogflow.the-golden-ticket.fulfillment.tag = "get-showtimes")</Condition>
+        </Flow>
+        <Flow name="order-ticket">
+            <Description/>
+            <Request>
+                <Step>
+                    <Name>AM-SetOrderTicketRequest</Name>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <Name>SDR-order-ticket</Name>
+                </Step>
+            </Response>
+            <Condition>(google.dialogflow.the-golden-ticket.fulfillment.tag = "order-ticket")</Condition>
+        </Flow>
+        <Flow name="validate-ticket">
+            <Description/>
+            <Request>
+                <Step>
+                    <Name>AM-SetValidateTicketRequest</Name>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <Name>SDR-validate-ticket</Name>
+                </Step>
+            </Response>
+            <Condition>(google.dialogflow.the-golden-ticket.fulfillment.tag = "validate-ticket")</Condition>
+        </Flow>
+    </Flows>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response/>
+    </PostFlow>
+    <HTTPProxyConnection>
+        <BasePath>/v1/the-golden-ticket</BasePath>
+    </HTTPProxyConnection>
+    <RouteRule name="noroute">
+        <Condition>(google.dialogflow.the-golden-ticket.fulfillment.tag = "get-movies-cache-prefetch")</Condition>
+    </RouteRule>
+    <RouteRule name="movies">
+        <Condition>(google.dialogflow.the-golden-ticket.fulfillment.tag = "get-movies")</Condition>
+        <TargetEndpoint>movies</TargetEndpoint>
+    </RouteRule>
+    <RouteRule name="showtimes">
+        <Condition>(google.dialogflow.the-golden-ticket.fulfillment.tag = "get-showtimes")</Condition>
+        <TargetEndpoint>showtimes</TargetEndpoint>
+    </RouteRule>
+    <RouteRule name="tickets">
+        <Condition>(google.dialogflow.the-golden-ticket.fulfillment.tag = "validate-ticket") or
+        (google.dialogflow.the-golden-ticket.fulfillment.tag = "order-ticket")
+        </Condition>
+        <TargetEndpoint>tickets</TargetEndpoint>
+    </RouteRule>
+</ProxyEndpoint>

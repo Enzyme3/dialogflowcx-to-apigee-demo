@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ServiceCallout continueOnError="false" enabled="true" name="SC-get-movies-precache">
+    <Request clearPayload="true">
+        <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+        <Set>
+            <Verb>POST</Verb>
+            <Payload contentType="application/json">{the-golden-ticket.request.content}</Payload>
+        </Set>
+    </Request>
+    <LocalTargetConnection>
+        <Path>/v1/the-golden-ticket</Path>
+    </LocalTargetConnection>
+</ServiceCallout>

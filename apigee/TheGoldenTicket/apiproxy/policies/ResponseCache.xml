@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ResponseCache continueOnError="false" enabled="true" name="ResponseCache">
+    <CacheKey>
+        <KeyFragment ref="google.dialogflow.the-golden-ticket.session.parameters.city" type="string"/>
+        <KeyFragment ref="google.dialogflow.the-golden-ticket.session.parameters.date.year" type="string"/>
+        <KeyFragment ref="google.dialogflow.the-golden-ticket.session.parameters.date.month" type="string"/>
+        <KeyFragment ref="google.dialogflow.the-golden-ticket.session.parameters.date.day" type="string"/>
+    </CacheKey>
+    <Scope>Exclusive</Scope>
+    <ExpirySettings>
+        <TimeoutInSec>60</TimeoutInSec>
+    </ExpirySettings>
+</ResponseCache>

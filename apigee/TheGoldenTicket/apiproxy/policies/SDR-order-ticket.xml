@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SetDialogflowResponse continueOnError="false" enabled="true" name="SDR-order-ticket">
+    <DialogflowVersion>CX</DialogflowVersion>
+    <Source>message</Source>
+    <Parameters>
+        <Parameter name="order-ticket-response">
+            <JSONPath>$</JSONPath>
+        </Parameter>
+    </Parameters>
+</SetDialogflowResponse>
