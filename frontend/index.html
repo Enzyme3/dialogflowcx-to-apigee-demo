@@ -22,16 +22,35 @@
          --df-messenger-user-message: #479b3d;
          }
       </style>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+      <style>
+         .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 48;
+            position: absolute;
+            bottom: 0;
+            margin: 15px;
+            font-size:50px;
+            color: gold;
+         }
+      </style>
    </head>
    <body>
-      <div class="bg"></div>
-   </body>
-   <script src="https://www.gstatic.com/dialogflow-console/fast/messenger-cx/bootstrap.js?v=1"></script>
-   <df-messenger
-      df-cx="true"
-      location="{REGION}"
-      chat-title="The Golden Ticket"
-      agent-id="{AGENT_ID}"
-      language-code="en"
+      <div class="bg">
+         <a href="https://cloud.google.com/blog/products/api-management/apigee-best-practices-for-contact-center-ai" target="_blank">
+            <span class="material-symbols-outlined">info</span>
+         </a>
+      </div>
+      <script src="https://www.gstatic.com/dialogflow-console/fast/messenger-cx/bootstrap.js?v=1"></script>
+      <df-messenger
+         df-cx="true"
+         location="{REGION}"
+         chat-title="The Golden Ticket"
+         agent-id="{AGENT_ID}"
+         language-code="en"
       ></df-messenger>
+   </body>
 </html>
