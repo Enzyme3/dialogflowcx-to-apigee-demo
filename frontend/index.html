@@ -37,29 +37,26 @@
             color: gold;
          }
 
-         iframe[src*="//www.youtube.com/"] {
-            position: absolute;
-            margin-left: auto;
-            margin-right: auto;
-            left: 0;
-            right: 0;
-            text-align: center;
-            bottom: 0;
-            border: 2px solid red;
+         .material-symbols-outlined#demo {
+            margin-left: 75px;
          }
       </style>
    </head>
    <body>
       <div class="bg">
          <a href="https://cloud.google.com/blog/products/api-management/apigee-best-practices-for-contact-center-ai" target="_blank">
-            <span class="material-symbols-outlined">info</span>
+            <span id ="info" class="material-symbols-outlined">info</span>
          </a>
-         <iframe width="560" height="315" src="https://www.youtube.com/embed/tiYvn5Gneug?autoplay=1&mute=1" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+         <a href="https://www.youtube.com/watch?v=tiYvn5Gneug" target="_blank" title="demo">
+            <span id="demo" class="material-symbols-outlined">play_circle</span>
+         </a>
       </div>
       <script src="https://www.gstatic.com/dialogflow-console/fast/messenger-cx/bootstrap.js?v=1"></script>
       <df-messenger
          df-cx="true"
          location="{REGION}"
+         expand="true"
+         intent="hi"
          chat-title="The Golden Ticket"
          agent-id="{AGENT_ID}"
          language-code="en"
