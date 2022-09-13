@@ -32,14 +32,14 @@ config.ticketsSold = {
     'movie': 'Spiderman',
     'city': 'Los Angeles',
     'date': '2021-11-17',
-    'time': '11:00 AM',
+    'showtime': '11:00 AM',
   },
   'KP-323': {
     'id': 'KP-323',
     'movie': 'Parasite',
     'city': 'Irvine',
-    'data': '2019-05-30',
-    'time': '9:00 PM',
+    'date': '2019-05-30',
+    'showtime': '9:00 PM',
   },
 };
 
